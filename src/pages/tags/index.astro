@@ -1,0 +1,45 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+type BlogPostEntry = CollectionEntry<"blog">;
+const pageTitle = "Tags";
+const tags = (await getCollection("blog")).flatMap(
+  (post: BlogPostEntry) => post.data.tags
+);
+const uniqueTags = [...new Set(tags)];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <ul class="tags">
+    {
+      uniqueTags.map((tag: string) => (
+        <li class="tag">
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
+
+<style>
+  a {
+    color: #00539f;
+    text-decoration: none;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 1.15em;
+    background-color: #f8fcfd;
+    text-decoration: none;
+  }
+</style>

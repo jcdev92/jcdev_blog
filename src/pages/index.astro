@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Greetings from "@/components/Greetings.jsx";
+const pageTitle = "Home";
+const pageDescription = "Home";
+const messages = [
+  "¡Hola!",
+  "Como ta la vaina?",
+  "Que onda",
+  "Hablame, qeloq dice",
+  "Ja weno, bienvenido pue!",
+];
+---
+
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+  <body>
+    <h2>Bienvenidos al blog de jesus clemente</h2>
+    <p>Aqui aprenderemos a crear blogs con astro.</p>
+    <Greetings client:load messages={messages} />
+  </body>
+</BaseLayout>

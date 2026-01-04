@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+
+const { post } = Astro.props;
+---
+
+<div>
+  <a href={`/posts/${post.id}/`}><h2>{post.data.title}</h2></a>
+  <p>{post.data.description}</p>
+  <p>{post.data.pubDate.toString().slice(0, 10)}</p>
+  <p>Escrito por: {post.data.author}</p>
+  <Image
+    src={post.data.image.url}
+    alt={post.data.image.alt}
+    inferSize
+    width={300}
+  />
+  <slot />
+</div>
+
+<style is:inline>
+  img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+</style>

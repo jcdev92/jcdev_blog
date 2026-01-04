@@ -1,0 +1,30 @@
+---
+import "../styles/global.css";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import BlogPost from "@/components/BlogPost.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+const pageTitle = "Blog";
+const pageDescription = "Blog";
+// const allBlogs = Object.values(
+//   import.meta.glob("./posts/*.md", { eager: true })
+// );
+const allBlogs = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+type BlogPostEntry = CollectionEntry<"blog">;
+---
+
+<BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
+  <body>
+    <p>Aquí es donde publicaré sobre mi viaje de aprendizaje de Astro.</p>
+    <ul>
+      {
+        allBlogs.map((post: BlogPostEntry) => (
+          <li>
+            <BlogPost post={post} />
+          </li>
+        ))
+      }
+    </ul>
+  </body>
+</BaseLayout>

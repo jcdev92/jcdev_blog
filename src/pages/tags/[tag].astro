@@ -1,0 +1,46 @@
+---
+import BlogPost from "@/components/BlogPost.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+type BlogPostEntry = CollectionEntry<"blog">;
+
+export async function getStaticPaths() {
+  const allBlogs = await getCollection("blog");
+  const uniqueTags = [
+    ...new Set(allBlogs.flatMap((post: BlogPostEntry) => post.data.tags)),
+  ] as string[];
+  return uniqueTags.map((tag: string) => {
+    const filteredPosts = allBlogs
+      .filter((post: BlogPostEntry) => post.data.tags.includes(tag))
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+    return {
+      params: {
+        tag,
+      },
+      props: {
+        posts: filteredPosts,
+      },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout pageTitle={tag}>
+  <p>Entradas etiquetadas con {tag}</p>
+  <ul>
+    {
+      posts.length > 0 ? (
+        posts.map((post: BlogPostEntry) => (
+          <li>
+            <BlogPost post={post} />
+          </li>
+        ))
+      ) : (
+        <li>No hay entradas con el tag {tag}</li>
+      )
+    }
+  </ul>
+</BaseLayout>

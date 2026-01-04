@@ -1,0 +1,12 @@
+---
+const pageTitles = [
+  { title: "Home", href: "/" },
+  { title: "About", href: "/about/" },
+  { title: "Blog", href: "/blog/" },
+  { title: "Tags", href: "/tags/" },
+];
+---
+
+<div id="main-menu" class="nav-links">
+  {pageTitles.map((page) => <a href={page.href}>{page.title}</a>)}
+</div>
