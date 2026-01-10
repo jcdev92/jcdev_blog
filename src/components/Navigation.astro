@@ -7,6 +7,18 @@ const pageTitles = [
 ];
 ---
 
-<div id="main-menu" class="nav-links">
-  {pageTitles.map((page) => <a href={page.href}>{page.title}</a>)}
+<div
+  id="main-menu"
+  class="nav-links w-full hidden m-0 md:block md:ml-20 md:w-auto md:bg-transparent"
+>
+  {
+    pageTitles.map((page) => (
+      <a
+        href={page.href}
+        class="block text-center py-2.5 no-underline text-xl font-bold uppercase text-slate-900 hover:bg-[#ff9776] focus:bg-[#ff9776] dark:text-white dark:hover:text-slate-900 dark:focus:text-slate-900 md:inline-block md:px-5 md:py-4"
+      >
+        {page.title}
+      </a>
+    ))
+  }
 </div>

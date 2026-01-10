@@ -13,9 +13,9 @@ const { pageDescription } = Astro.props;
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
   </head>
-  <body>
+  <body class="mx-auto w-full max-w-prose p-4 leading-relaxed">
     <Header />
-    <h1>{pageTitle}</h1>
+    <h1 class="my-4 text-4xl">{pageTitle}</h1>
     <slot />
     <Footer />
     <script>
