@@ -13,10 +13,14 @@ const { pageDescription } = Astro.props;
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
   </head>
-  <body class="mx-auto w-full max-w-prose p-4 leading-relaxed">
+  <body
+    class="mx-auto w-full max-w-prose p-4 leading-relaxed min-h-screen grid grid-rows-[auto_1fr_auto]"
+  >
     <Header />
-    <h1 class="my-4 text-4xl">{pageTitle}</h1>
-    <slot />
+    <main>
+      <h1 class="my-4 text-4xl">{pageTitle}</h1>
+      <slot />
+    </main>
     <Footer />
     <script>
       import "../scripts/menu";
