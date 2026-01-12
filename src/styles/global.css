@@ -28,7 +28,8 @@ h6 {
 }
 
 /* Dark mode overrides if needed, but Medium is often white. Keeping basic support. */
-.dark body {
+.dark body,
+.dark html {
   background-color: #121212;
   color: #e0e0e0;
 }
