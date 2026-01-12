@@ -35,5 +35,20 @@ h6 {
 }
 
 :has(.menu[aria-expanded="true"]) .nav-links {
-  display: block;
+  display: flex;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 40;
+  background-color: #ffffff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.25rem;
+}
+
+:where(.dark) :has(.menu[aria-expanded="true"]) .nav-links {
+  background-color: #121212;
 }

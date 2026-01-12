@@ -5,7 +5,20 @@
 <button
   aria-expanded="false"
   aria-controls="main-menu"
-  class="menu border-none bg-[#0d0950] text-white text-xl font-bold py-1 px-2.5 md:hidden dark:bg-white dark:text-black"
+  aria-label="Toggle menu"
+  class="menu cursor-pointer border-none bg-transparent p-2 md:hidden z-50 relative"
 >
-  Menu
+  <svg
+    class="w-8 h-8 text-black dark:text-white"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M4 6h16M4 12h16M4 18h16"></path>
+  </svg>
 </button>
