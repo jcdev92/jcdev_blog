@@ -1,32 +1,84 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import Greetings from "@/components/Greetings.jsx";
-const pageTitle = "Home";
-const pageDescription = "Home";
-const messages = [
-  "¡Hola!",
-  "Como ta la vaina?",
-  "Que onda",
-  "Hablame, qeloq dice",
-  "Ja weno, bienvenido pue!",
-];
-const owner = "Jesus Clemente";
-const siteTitle = "Blog del GZUS";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
+import { getCollection } from "astro:content";
+
+const pageTitle = "Inicio";
+const pageDescription =
+  "Explorando el Desarrollo Web, Astro y Linux en el Blog del GZUS.";
+
+const allPosts = await getCollection("blog");
+const recentPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const allTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 ---
 
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
-  <body class="flex flex-col gap-4">
-    <header class="flex flex-col gap-2">
-      <p class="text-2xl font-bold">
-        Bienvenidos al <span class="font-sans text-orange-300 text-shadow-sm/30"
-          >{siteTitle}</span
-        >
-      </p>
-      <p>Aqui aprenderemos a crear blogs con astro.</p>
-      <Greetings client:load messages={messages} />
-      <footer class="flex justify-center">
-        <p>© {new Date().getFullYear()} {owner}</p>
-      </footer>
-    </header>
-  </body>
+  <!-- Hero Section -->
+  <section class="w-full py-20 md:py-32 text-center space-y-8">
+    <h1
+      class="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white font-sans"
+    >
+      Explorando el <span
+        class="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-red-600"
+        >Desarrollo Web</span
+      >
+    </h1>
+    <p
+      class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-serif italic leading-relaxed"
+    >
+      Bienvenido al Blog del GZUS. Aquí comparto mi viaje de aprendizaje,
+      tutoriales y experiencias sobre Desarrollo Web, Linux y Tecnología.
+    </p>
+    <div class="flex justify-center gap-4 pt-4">
+      <a
+        href="/blog"
+        class="px-8 py-3 text-lg font-medium text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-all dark:bg-white dark:text-slate-900 dark:hover:bg-gray-200"
+      >
+        Leer el Blog
+      </a>
+    </div>
+  </section>
+
+  <!-- Recent Posts Section -->
+  <section class="w-full max-w-3xl mx-auto mb-20 px-4">
+    <div
+      class="flex items-center justify-between mb-8 border-b border-gray-200 pb-4"
+    >
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white font-sans">
+        Últimas Publicaciones
+      </h2>
+      <a
+        href="/blog"
+        class="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white font-medium text-sm"
+        >Ver todas →</a
+      >
+    </div>
+    <div class="flex flex-col">
+      {recentPosts.map((post) => <BlogPost post={post} />)}
+    </div>
+  </section>
+
+  <!-- Tags Section -->
+  <section class="w-full max-w-3xl mx-auto mb-20 px-4">
+    <h2
+      class="text-2xl font-bold text-gray-900 dark:text-white font-sans mb-8 text-center"
+    >
+      Temas de Interés
+    </h2>
+    <div class="flex flex-wrap justify-center gap-3">
+      {
+        allTags.map((tag) => (
+          <a
+            href={`/tags/${tag}`}
+            class="px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 rounded-full hover:bg-slate-200 hover:scale-105 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
+          >
+            #{tag}
+          </a>
+        ))
+      }
+    </div>
+  </section>
 </BaseLayout>
