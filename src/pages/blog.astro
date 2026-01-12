@@ -5,9 +5,6 @@ import BlogPost from "@/components/BlogPost.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 const pageTitle = "Blog";
 const pageDescription = "Blog";
-// const allBlogs = Object.values(
-//   import.meta.glob("./posts/*.md", { eager: true })
-// );
 const allBlogs = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
