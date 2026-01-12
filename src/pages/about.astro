@@ -1,68 +1,108 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import "@/styles/global.css";
-const pageTitle = "Sobre mi";
-const pageDescription = "Todo sobre jcdev";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Sobre Mí";
+const pageDescription = "Conoce más sobre el desarrollador detrás del blog.";
+
 const identity = {
   firstName: "Jesus",
   country: "Venezuela",
   occupation: "Desarrollador Web",
-  hobbies: ["cine", "programación", "futbol", "baseball"],
+  hobbies: ["Cine", "Programación", "Fútbol", "Beisbol"],
 };
 
 const skills = ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Astro"];
-
-const happy = true;
-const finished = true;
-const goal = 3;
-
-const skillColor = "crimson";
 ---
 
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
-  <style is:global define:vars={{ skillColor }}>
-    .skill {
-      color: var(--skillColor);
-      font-weight: bold;
-    }
-  </style>
-  <body>
-    <h2>... ¡y mi nuevo sitio Astro!</h2>
-    <p>
-      Estoy trabajando en el tutorial introductorio de Astro. Esta es la segunda
-      página de mi sitio web, ¡y es la primera que he construido yo mismo!
-    </p>
-    <p>
-      Este sitio se irá actualizando a medida que vaya completando más partes
-      del tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!
-    </p>
-    <p>He aquí algunos datos sobre mí:</p>
-    <ul>
-      <li>Me llamo {identity.firstName}.</li>
-      <li>Vivo en {identity.country} y trabajo como {identity.occupation}.</li>
-      {
-        identity.hobbies.length >= 2 && (
-          <li>
-            Dos de mis aficiones son: {identity.hobbies[0]} y{" "}
-            {identity.hobbies[1]}
-          </li>
-        )
-      }
-    </ul>
-    <p>Mis habilidades son:</p>
-    <ul>
-      {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
-    {happy && <p>¡Estoy feliz de aprender Astro!</p>}
+  <section class="max-w-3xl mx-auto px-4 py-12 md:py-20">
+    <div class="text-center mb-16 space-y-4">
+      <h1
+        class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white font-sans"
+      >
+        Hola, soy <span
+          class="text-transparent bg-clip-text bg-linear-to-r from-blue-500 to-teal-400"
+          >{identity.firstName}</span
+        >
+      </h1>
+      <p
+        class="text-xl text-slate-600 dark:text-slate-300 font-serif italic max-w-2xl mx-auto"
+      >
+        {identity.occupation} viviendo en {identity.country}.
+      </p>
+    </div>
 
-    {finished && <p>¡He terminado este tutorial!</p>}
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div class="space-y-6">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white font-sans">
+          Mi Historia
+        </h2>
+        <div
+          class="prose prose-slate dark:prose-invert font-serif text-slate-600 dark:text-slate-300 leading-relaxed"
+        >
+          <p>
+            ¡Bienvenido a mi rincón en la web! Actualmente estoy enfocado en
+            crear experiencias web modernas y accesibles. Este blog es parte de
+            mi viaje aprendiendo y dominando Astro, un framework que me ha
+            sorprendido por su rendimiento y simplicidad.
+          </p>
+          <p>
+            Cuando no estoy escribiendo código, probablemente me encontrarás
+            disfrutando de mis hobbies como ver una buena película de {
+              identity.hobbies[0].toLowerCase()
+            } o viendo un partido de {identity.hobbies[2].toLowerCase()}.
+          </p>
+        </div>
+      </div>
 
-    {
-      goal === 3 ? (
-        <p>Mi objetivo es terminar en 3 días hábiles.</p>
-      ) : (
-        <p>Mi objetivo no son 3 días hábiles.</p>
-      )
-    }
-  </body>
+      <div class="space-y-8">
+        <div>
+          <h2
+            class="text-2xl font-bold text-slate-900 dark:text-white font-sans mb-4"
+          >
+            Habilidades Técnicas
+          </h2>
+          <div class="flex flex-wrap gap-2">
+            {
+              skills.map((skill) => (
+                <span class="px-3 py-1 text-sm font-medium text-slate-700 bg-slate-100 rounded-md dark:bg-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                  {skill}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        <div>
+          <h2
+            class="text-2xl font-bold text-slate-900 dark:text-white font-sans mb-4"
+          >
+            Intereses
+          </h2>
+          <ul class="space-y-2">
+            {
+              identity.hobbies.map((hobby) => (
+                <li class="flex items-center text-slate-600 dark:text-slate-300 font-serif">
+                  <svg
+                    class="w-4 h-4 mr-2 text-teal-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  {hobby}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
