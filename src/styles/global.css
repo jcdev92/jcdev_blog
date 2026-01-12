@@ -1,9 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap');
+
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
 
-* {
-  box-sizing: border-box;
+:root {
+  --font-serif: 'Merriweather', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-serif);
+  color: #242424;
+  background-color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  /* Medium uses sans for some UI, but articles are serif. Let's use Serif for titles too for that 'classic' look or stick to specific overrides. Actually Medium uses Serif for titles in articles. Let's stick to Serif for main body and titles, Sans for UI. */
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Dark mode overrides if needed, but Medium is often white. Keeping basic support. */
+.dark body {
+  background-color: #121212;
+  color: #e0e0e0;
 }
 
 :has(.menu[aria-expanded="true"]) .nav-links {

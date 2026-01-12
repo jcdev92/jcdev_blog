@@ -9,7 +9,7 @@ const pageDescription = "Blog";
 //   import.meta.glob("./posts/*.md", { eager: true })
 // );
 const allBlogs = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 type BlogPostEntry = CollectionEntry<"blog">;
 ---
@@ -17,14 +17,8 @@ type BlogPostEntry = CollectionEntry<"blog">;
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
   <body>
     <p>Aquí es donde publicaré sobre mi viaje de aprendizaje de Astro.</p>
-    <ul>
-      {
-        allBlogs.map((post: BlogPostEntry) => (
-          <li>
-            <BlogPost post={post} />
-          </li>
-        ))
-      }
-    </ul>
+    <div class="max-w-3xl mx-auto w-full flex flex-col">
+      {allBlogs.map((post: BlogPostEntry) => <BlogPost post={post} />)}
+    </div>
   </body>
 </BaseLayout>
