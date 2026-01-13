@@ -13,7 +13,10 @@ type BlogPostEntry = CollectionEntry<"blog">;
 
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
   <body>
-    <p>Aquí es donde publicaré sobre mi viaje de aprendizaje de Astro.</p>
+    <p>
+      Aquí es donde publicaré sobre como realizo mis proyectos personales, las
+      tecnologías que uso y los procesos que seguí.
+    </p>
     <div class="max-w-3xl mx-auto w-full flex flex-col">
       {allBlogs.map((post: BlogPostEntry) => <BlogPost post={post} />)}
     </div>
