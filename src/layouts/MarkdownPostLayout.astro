@@ -10,21 +10,23 @@ const tags = frontmatter.tags;
   pageTitle={frontmatter.title}
   pageDescription={frontmatter.description}
 >
-  <article class="w-full max-w-3xl mx-auto px-4 mt-8">
+  <article class="w-full max-w-3xl mx-auto px-4 py-8">
     <header class="text-center mb-12">
       <div
-        class="flex items-center justify-center gap-2 text-sm text-gray-500 font-sans mb-6 uppercase tracking-wider"
+        class="flex items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400 font-sans mb-6 uppercase tracking-wider"
       >
         <span>{frontmatter.pubDate.toString().slice(0, 10)}</span>
-        <span class="w-1 h-1 bg-gray-300 rounded-full"></span>
+        <span class="w-1 h-1 bg-gray-300 dark:bg-gray-600 rounded-full"></span>
         <span>{frontmatter.author}</span>
       </div>
       <h1
-        class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6 font-sans text-center"
+        class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 leading-tight mb-6 font-sans text-center"
       >
         {frontmatter.title}
       </h1>
-      <p class="text-xl text-gray-500 font-serif italic max-w-2xl mx-auto">
+      <p
+        class="text-xl text-gray-500 dark:text-gray-400 font-serif italic max-w-2xl mx-auto"
+      >
         {frontmatter.description}
       </p>
     </header>
@@ -40,7 +42,7 @@ const tags = frontmatter.tags;
     </div>
 
     <div
-      class="prose prose-lg prose-slate mx-auto font-serif prose-headings:font-sans prose-headings:font-bold prose-p:text-gray-800 prose-a:text-green-700 hover:prose-a:text-green-800 text-justify"
+      class="prose prose-lg prose-slate dark:prose-invert mx-auto font-serif prose-headings:font-sans prose-headings:font-bold prose-p:text-gray-800 dark:prose-p:text-gray-200 prose-a:text-green-700 dark:prose-a:text-green-400 hover:prose-a:text-green-800 dark:hover:prose-a:text-green-300 text-justify"
     >
       <slot />
     </div>
