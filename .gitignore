@@ -26,6 +26,6 @@ pnpm-debug.log*
 # vscode settings
 .vscode/
 
-# vercel
+# keystatic
 .vercel
 
