@@ -14,12 +14,13 @@ const { pageDescription } = Astro.props;
     <meta name="description" content={pageDescription} />
   </head>
   <body
-    class="mx-auto w-full max-w-6xl p-4 leading-relaxed min-h-screen grid grid-rows-[auto_1fr_auto]"
+    class="leading-relaxed min-h-screen grid grid-rows-[auto_1fr_auto] bg-white dark:bg-[#121212]"
   >
     <Header />
-    <main class="flex flex-col items-center text-center">
-      <h1 class="my-4 text-4xl">{pageTitle}</h1>
-      <slot />
+    <main class="w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <slot />
+      </div>
     </main>
     <Footer />
     <script>

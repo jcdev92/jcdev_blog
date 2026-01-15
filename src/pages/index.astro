@@ -17,7 +17,9 @@ const allTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 
 <BaseLayout pageTitle={pageTitle} pageDescription={pageDescription}>
   <!-- Hero Section -->
-  <section class="w-full py-20 md:py-32 text-center space-y-8">
+  <section
+    class="w-full py-20 md:py-32 text-center space-y-8 max-w-5xl mx-auto"
+  >
     <h1
       class="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white font-sans"
     >
@@ -27,7 +29,7 @@ const allTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
       >
     </h1>
     <p
-      class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-serif italic leading-relaxed"
+      class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-serif italic leading-relaxed"
     >
       Bienvenido al Blog del GZUS. Aquí comparto mi viaje de aprendizaje,
       tutoriales y experiencias sobre Desarrollo Web, Linux y Tecnología.
@@ -43,7 +45,7 @@ const allTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
   </section>
 
   <!-- Recent Posts Section -->
-  <section class="w-full max-w-3xl mx-auto mb-20 px-4">
+  <section class="w-full max-w-5xl mx-auto mb-20 px-4">
     <div
       class="flex items-center justify-between mb-8 border-b border-gray-200 pb-4"
     >
@@ -62,7 +64,7 @@ const allTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
   </section>
 
   <!-- Tags Section -->
-  <section class="w-full max-w-3xl mx-auto mb-20 px-4">
+  <section class="w-full max-w-5xl mx-auto mb-20 px-4">
     <h2
       class="text-2xl font-bold text-gray-900 dark:text-white font-sans mb-8 text-center"
     >

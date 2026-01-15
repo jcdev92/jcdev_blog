@@ -1,18 +1,21 @@
 ---
-const platform = "github";
-const username = "withastro";
 import Social from "./Social.astro";
 ---
 
 <footer
-  class="flex gap-4 mt-12 mb-8 justify-center text-sm text-gray-500 font-sans"
+  class="border-t border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#0a0a0a] mt-20"
 >
-  <p>
-    ¡Más información sobre mis proyectos en <a
-      href={`https://www.${platform}.com/${username}`}
-      class="dark:text-[#ff9776]">{platform}</a
-    >!
-  </p>
-  <Social platform="github" username="jcdev92" />
-  <Social platform="x" username="jcdev92" />
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div
+      class="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-gray-500 font-sans"
+    >
+      <div class="flex gap-6">
+        <Social platform="github" username="jcdev92" />
+        <Social platform="x" username="jcdev92" />
+      </div>
+      <p>
+        © {new Date().getFullYear()} El Blog del GZUS. Creado con Astro y Keystatic.
+      </p>
+    </div>
+  </div>
 </footer>

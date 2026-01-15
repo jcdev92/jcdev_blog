@@ -4,8 +4,12 @@ import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 ---
 
-<header class="border-b border-gray-100 py-4 mb-8">
-  <nav class="flex items-center justify-between max-w-6xl mx-auto px-4">
+<header
+  class="border-b border-gray-100 dark:border-gray-800 py-4 mb-8 bg-white/80 dark:bg-[#121212]/80 backdrop-blur-md sticky top-0 z-50"
+>
+  <nav
+    class="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  >
     <ThemeIcon />
     <Navigation />
     <Menu />
