@@ -17,7 +17,11 @@ export default config({
                 author: fields.text({ label: 'Author' }),
                 image: fields.object(
                     {
-                        url: fields.text({ label: 'URL' }),
+                        url: fields.image({
+                            label: 'Image',
+                            directory: 'src/assets/blog',
+                            publicPath: '../assets/blog/',
+                        }),
                         alt: fields.text({ label: 'Alt Text' }),
                     },
                     {
