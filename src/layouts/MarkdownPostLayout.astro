@@ -31,15 +31,19 @@ const tags = frontmatter.tags;
       </p>
     </header>
 
-    <div class="w-full mb-12">
-      <Image
-        src={frontmatter.image.url}
-        width={1000}
-        inferSize
-        alt={frontmatter.image.alt}
-        class="w-full h-auto rounded-lg shadow-sm"
-      />
-    </div>
+    {
+      frontmatter.image.url && (
+        <div class="w-full mb-12">
+          <Image
+            src={frontmatter.image.url}
+            width={1000}
+            inferSize
+            alt={frontmatter.image.alt}
+            class="w-full h-auto rounded-lg shadow-sm"
+          />
+        </div>
+      )
+    }
 
     <div
       class="prose prose-lg prose-slate dark:prose-invert mx-auto font-serif prose-headings:font-sans prose-headings:font-bold prose-p:text-gray-800 dark:prose-p:text-gray-200 prose-a:text-green-700 dark:prose-a:text-green-400 hover:prose-a:text-green-800 dark:hover:prose-a:text-green-300 text-justify"
