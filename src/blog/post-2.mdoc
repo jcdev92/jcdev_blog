@@ -18,9 +18,7 @@ tags:
 console.log('Cargando islas... 0KB de JavaScript enviados.');
 ```
 
-Después de años escuchando que para hacer una web moderna necesitas cargar megabytes de JavaScript antes de siquiera
-mostrar un "Hola Mundo", me topé con **Astro**. Si el Capítulo 1 fue sobre el inicio de este viaje, este capítulo trata
-sobre los cimientos técnicos de este búnker digital.
+Dentro del stack de Frameworks y librerías de front-end que he utilizado los últimos años como React, Vue, etc., sobre todo en proyectos con mucha interactividad, cambios de estados, y contenido dinámico, y aunque si bien el rendimiento ha mejorado muchísimo de estas apps construidas con estas tecnologías, me faltaba probar el popular y extremadamente veloz **Astro**, con su enfoque en contenido estático y Multi-Page Application (MPA), y que mejor que debutar con mi propio blog sobre desarrollo utilizando y aprendiendo **Astro**. Si el Capítulo 1 fue sobre el inicio de este viaje, este capítulo trata sobre los cimientos técnicos de este búnker digital.
 
 ### 1. El Flechazo: Velocidad por defecto
 
@@ -50,11 +48,11 @@ Aprender Astro ha sido refrescante, pero no ha estado exento de "momentos de ter
 configurar:
 
 - **Content Collections:** Es la forma en que Astro maneja estos posts. Me permite tener un esquema (Zod) que valida que
-cada blog tenga título, fecha y autor. Si me falta algo, ¡el sitio ni siquiera compila!
+  cada blog tenga título, fecha y autor. Si me falta algo, ¡el sitio ni siquiera compila!
 - **Tailwind CSS 4:** Lo configuramos en el post anterior, y la velocidad de desarrollo con la nueva versión es absurda.
-Menos configuración, más diseño.
+  Menos configuración, más diseño.
 - **Keystatic:** Mi nuevo editor favorito. Me permite escribir esto sin ver una sola línea de código, gestiónando mis
-imágenes directamente en el sistema de archivos.
+  imágenes directamente en el sistema de archivos.
 
 > **TIP DE GZUS:** Si vienes de usar React puro, recuerda que en Astro el JavaScript por defecto no llega al cliente. Si
 tu componente no hace nada al hacer clic, probablemente te falta la directiva `client:load`.
@@ -65,11 +63,11 @@ tu componente no hace nada al hacer clic, probablemente te falta la directiva `c
 
 Aquí es donde se ve el trabajo real. Así es como se ve mi configuración de `content.config.ts` actualmente:
 
-*![](../assets/blog/post-2/Screenshot-2026-02-05-210303.png)*
+![](../assets/blog/post-2/Screenshot-2026-02-05-210303.png)
 
 Y aquí una captura de mi entorno en **WSL2**, donde ocurre toda la magia del despliegue:
 
-*![](../assets/blog/post-2/Screenshot-2026-02-05-210220.png)*
+![](../assets/blog/post-2/Screenshot-2026-02-05-210220.png)
 
 ---
 
