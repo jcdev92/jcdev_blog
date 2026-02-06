@@ -1,6 +1,6 @@
 ---
-title: Mi segunda publicación en el blog
-pubDate: 2022-07-08
+title: 'Capítulo 2: La Arquitectura — ¿Por qué Astro es el motor de este búnker?'
+pubDate: 2026-02-06
 description: Después de aprender un poco de Astro, ¡no podía parar!
 author: Jesus Clemente
 image:
@@ -14,4 +14,69 @@ tags:
   - aprender en público
   - éxitos
 ---
-Después de una exitosa primera semana aprendiendo Astro, decidí probar un poco más. Escribí e importé un pequeño componente de memoria.
+```
+console.log('Cargando islas... 0KB de JavaScript enviados.');
+```
+
+Después de años escuchando que para hacer una web moderna necesitas cargar megabytes de JavaScript antes de siquiera
+mostrar un "Hola Mundo", me topé con **Astro**. Si el Capítulo 1 fue sobre el inicio de este viaje, este capítulo trata
+sobre los cimientos técnicos de este búnker digital.
+
+### 1. El Flechazo: Velocidad por defecto
+
+La mayoría de los frameworks modernos (React, Next.js, Vue) están diseñados para aplicaciones altamente interactivas
+(dashboards, redes sociales). Pero para un blog, eso es como usar un tanque para ir a comprar pan.
+
+Astro propone algo distinto: **Multi-Page Application (MPA)**. Envía HTML puro al navegador y solo añade JavaScript
+donde realmente es necesario. ¿El resultado? Una puntuación de 100 en Lighthouse sin tener que romperme la cabeza
+optimizando.
+
+---
+
+### 2. El concepto clave: La Arquitectura de Islas
+
+Si hay algo que me voló la cabeza mientras aprendía Astro, fue su arquitectura de islas. Imagina que tu página es un
+océano de HTML estático (rápido y ligero). Las "islas" son los componentes interactivos (un botón de dark mode, un
+buscador, un reproductor).
+
+Gracias a esto, puedo usar React para un componente específico sin que toda la página sufra el peso de la librería. Es
+como tener lo mejor de ambos mundos: la simplicidad de los años 90 con las herramientas de 2026.
+
+---
+
+### 3. Mi proceso de aprendizaje (Learning in Public)
+
+Aprender Astro ha sido refrescante, pero no ha estado exento de "momentos de terminal". Aquí lo que más me ha gustado
+configurar:
+
+- **Content Collections:** Es la forma en que Astro maneja estos posts. Me permite tener un esquema (Zod) que valida que
+cada blog tenga título, fecha y autor. Si me falta algo, ¡el sitio ni siquiera compila!
+- **Tailwind CSS 4:** Lo configuramos en el post anterior, y la velocidad de desarrollo con la nueva versión es absurda.
+Menos configuración, más diseño.
+- **Keystatic:** Mi nuevo editor favorito. Me permite escribir esto sin ver una sola línea de código, gestiónando mis
+imágenes directamente en el sistema de archivos.
+
+> **TIP DE GZUS:** Si vienes de usar React puro, recuerda que en Astro el JavaScript por defecto no llega al cliente. Si
+tu componente no hace nada al hacer clic, probablemente te falta la directiva `client:load`.
+
+---
+
+### 4. El Setup: Screenshots de la "cocina"
+
+Aquí es donde se ve el trabajo real. Así es como se ve mi configuración de `content.config.ts` actualmente:
+
+*![](../assets/blog/post-2/Screenshot-2026-02-05-210303.png)*
+
+Y aquí una captura de mi entorno en **WSL2**, donde ocurre toda la magia del despliegue:
+
+*![](../assets/blog/post-2/Screenshot-2026-02-05-210220.png)*
+
+---
+
+### Conclusión y ¿Qué sigue?
+
+Astro no es solo una herramienta más; es la forma en la que estoy redescubriendo que la web puede ser rápida, sencilla y
+divertida de construir. No necesito una arquitectura de microservicios para contar mis anécdotas con **Arch Linux**,
+necesito un sitio que vuele.
+
+En el **Capítulo 3**, entraremos en el barro: **"Personalización extrema: Dotfiles, Fuentes y el look de la terminal"**.
